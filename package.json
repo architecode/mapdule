@@ -1,0 +1,42 @@
+{
+  "name": "mapdule",
+  "version": "0.0.1-alpha.1",
+  "description": "Map Module",
+  "main": "./dst/index.js",
+  "typings": "./typings/index.d.ts",
+  "scripts": {
+    "build": "npm run cleanup && npm run build-ts",
+    "test": "npm run cleanup && npm run test-ts",
+    "test-cvr": "npm run cleanup && npm run test-cvr-ts",
+    "test-ts": "npm run build-ts && npm run test-all",
+    "test-cvr-ts": "npm run build-ts && npm run test-all-cvr",
+    "build-ts": "npm run tslint && tsc",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "cleanup": "node scripts/cleanup",
+    "aftertests": "node scripts/aftertests",
+    "test-all": "npm run test-mocha",
+    "test-all-cvr": "npm run test-mocha-cvr",
+    "test-mocha": "mocha test --recursive",
+    "test-mocha-cvr": "nyc mocha test --recursive",
+    "coverage": "npm run coveralls",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "cix-lic": "cix-lic --conf"
+  },
+  "author": "Architecode Corporation",
+  "license": "MIT",
+  "repository": "git+https://github.com/architecode/mapdule",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.1.2",
+    "chai": "^4.1.2",
+    "cix-lic": "^2.0.5",
+    "coveralls": "^3.0.1",
+    "mocha": "^5.2.0",
+    "mock-require": "^3.0.2",
+    "nyc": "^11.8.0",
+    "shelljs": "^0.8.2",
+    "sinon": "^5.0.7",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  }
+}
